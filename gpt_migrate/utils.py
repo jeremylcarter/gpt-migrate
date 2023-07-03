@@ -5,6 +5,7 @@ from collections import Counter
 import fnmatch
 import re
 import shutil
+import time
 from config import INCLUDED_EXTENSIONS, EXTENSION_TO_LANGUAGE
 
 def detect_language(source_directory):
@@ -42,6 +43,7 @@ def llm_run(prompt,waiting_message,success_message,globals):
         success_text = typer.style(success_message, fg=typer.colors.GREEN)
         typer.echo(success_text)
     
+    time.sleep(30)
     return output
 
 def llm_write_file(prompt,target_path,waiting_message,success_message,globals):
